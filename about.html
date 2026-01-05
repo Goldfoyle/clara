@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About — Clara</title>
   <meta name="description" content="Meet the team behind Clara and learn about our mission to make complex data accessible." />
-  
+
+  <link rel="canonical" href="https://YOUR-DOMAIN.com/about.html" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -142,15 +144,52 @@
     section{padding: 48px 0}
     .section-title{margin:0 0 8px; font-size: 26px; letter-spacing:-.02em}
 
-    footer{padding: 28px 0 36px; border-top:1px solid rgba(15,23,42,.08); color: rgba(15,23,42,.62); font-size: 13px}
-    .foot{display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap}
-    .foot a{color: rgba(15,23,42,.62)}
-    .foot a:hover{color: rgba(15,23,42,.88)}
+    /* TEAM (minimal + matches your style) */
+    .team-wrap{
+      display:grid;
+      gap:34px;
+      margin-top:32px;
+      max-width: 1000px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    .team-row{
+      display:grid;
+      gap:40px;
+      justify-items:center;
+      align-items:start;
+    }
+    .team-row.row-4{grid-template-columns: repeat(4, minmax(0,1fr));}
+    .team-row.row-3{grid-template-columns: repeat(3, minmax(0,1fr));}
+
+    .team-card{display:grid; gap:16px; justify-items:center; text-align:center}
+    .team-avatar{
+      width:160px; height:160px; border-radius:50%;
+      background: linear-gradient(135deg, #702FDA, #F889B8);
+      border:3px solid rgba(15,23,42,.08);
+      box-shadow: 0 14px 40px rgba(112,47,218,.18);
+      overflow:hidden;
+    }
+    .team-avatar img{width:100%; height:100%; object-fit:cover; display:block}
+    .team-name{font-weight:800; font-size:20px; letter-spacing:-.01em}
+    .team-role{font-size:15px; color:rgba(15,23,42,.62); margin-top:4px}
 
     @media (max-width: 980px){
       .container{padding: 0 16px;}
       header{padding: 60px 0 32px}
+
+      /* keep it clean on phones */
+      .team-row.row-4{grid-template-columns: repeat(2, minmax(0,1fr));}
+      .team-row.row-3{grid-template-columns: repeat(2, minmax(0,1fr));}
     }
+    @media (max-width: 520px){
+      .team-row.row-4, .team-row.row-3{grid-template-columns: 1fr;}
+    }
+
+    footer{padding: 28px 0 36px; border-top:1px solid rgba(15,23,42,.08); color: rgba(15,23,42,.62); font-size: 13px}
+    .foot{display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap}
+    .foot a{color: rgba(15,23,42,.62)}
+    .foot a:hover{color: rgba(15,23,42,.88)}
   </style>
 </head>
 
@@ -191,37 +230,91 @@
   </header>
 
   <!-- TEAM SECTION -->
-  <section>
+  <section aria-label="Team">
     <div class="container">
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:40px; margin-top:32px; max-width:900px; margin-left:auto; margin-right:auto">
-        
-        <div style="display:grid; gap:16px; justify-items:center; text-align:center">
-          <div style="width:160px; height:160px; border-radius:50%; background: linear-gradient(135deg, #702FDA, #F889B8); border:3px solid rgba(15,23,42,.08); box-shadow: 0 14px 40px rgba(112,47,218,.18); overflow:hidden">
-            <img src="team/person-1.webp" alt="Team member" style="width:100%; height:100%; object-fit:cover" />
+      <div class="team-wrap">
+
+        <!-- File structure you will upload:
+          /team/alex.webp
+          /team/greg.webp
+          /team/dario.webp
+          /team/sara.webp
+          /team/steve.webp
+          /team/gary.webp
+          /team/ehud.webp
+        -->
+
+        <div class="team-row row-4">
+          <div class="team-card">
+            <div class="team-avatar">
+              <img src="team/alex.webp" alt="Alex — Clara team member" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="team-name">Alex</div>
+              <div class="team-role">Role / Title</div>
+            </div>
           </div>
-          <div>
-            <div style="font-weight:800; font-size:20px; letter-spacing:-.01em">Name Here</div>
-            <div style="font-size:15px; color:rgba(15,23,42,.62); margin-top:4px">Role / Title</div>
+
+          <div class="team-card">
+            <div class="team-avatar">
+              <img src="team/greg.webp" alt="Greg — Clara team member" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="team-name">Greg</div>
+              <div class="team-role">Role / Title</div>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <div class="team-avatar">
+              <img src="team/dario.webp" alt="Dario — Clara team member" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="team-name">Dario</div>
+              <div class="team-role">Role / Title</div>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <div class="team-avatar">
+              <img src="team/sara.webp" alt="Sara — Clara team member" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="team-name">Sara</div>
+              <div class="team-role">Role / Title</div>
+            </div>
           </div>
         </div>
 
-        <div style="display:grid; gap:16px; justify-items:center; text-align:center">
-          <div style="width:160px; height:160px; border-radius:50%; background: linear-gradient(135deg, #702FDA, #F889B8); border:3px solid rgba(15,23,42,.08); box-shadow: 0 14px 40px rgba(112,47,218,.18); overflow:hidden">
-            <img src="team/person-2.webp" alt="Team member" style="width:100%; height:100%; object-fit:cover" />
+        <div class="team-row row-3">
+          <div class="team-card">
+            <div class="team-avatar">
+              <img src="team/steve.webp" alt="Steve — Clara team member" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="team-name">Steve</div>
+              <div class="team-role">Role / Title</div>
+            </div>
           </div>
-          <div>
-            <div style="font-weight:800; font-size:20px; letter-spacing:-.01em">Name Here</div>
-            <div style="font-size:15px; color:rgba(15,23,42,.62); margin-top:4px">Role / Title</div>
-          </div>
-        </div>
 
-        <div style="display:grid; gap:16px; justify-items:center; text-align:center">
-          <div style="width:160px; height:160px; border-radius:50%; background: linear-gradient(135deg, #702FDA, #F889B8); border:3px solid rgba(15,23,42,.08); box-shadow: 0 14px 40px rgba(112,47,218,.18); overflow:hidden">
-            <img src="team/person-3.webp" alt="Team member" style="width:100%; height:100%; object-fit:cover" />
+          <div class="team-card">
+            <div class="team-avatar">
+              <img src="team/gary.webp" alt="Gary — Clara team member" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="team-name">Gary</div>
+              <div class="team-role">Role / Title</div>
+            </div>
           </div>
-          <div>
-            <div style="font-weight:800; font-size:20px; letter-spacing:-.01em">Name Here</div>
-            <div style="font-size:15px; color:rgba(15,23,42,.62); margin-top:4px">Role / Title</div>
+
+          <div class="team-card">
+            <div class="team-avatar">
+              <img src="team/ehud.webp" alt="Ehud — Clara team member" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <div class="team-name">Ehud</div>
+              <div class="team-role">Role / Title</div>
+            </div>
           </div>
         </div>
 
@@ -244,7 +337,7 @@
       <div id="eu-grant" style="margin-top:40px; max-width:880px; margin-left:auto; margin-right:auto">
         <div style="background: rgba(255,255,255,.9); border:1px solid rgba(15,23,42,.10); border-radius: 24px; padding: 40px; box-shadow: 0 14px 40px rgba(92,28,157,.12)">
           <h3 style="margin:0 0 16px; font-size:22px; letter-spacing:-.02em; color:#5C1C9D">Building a novel machine learning solution</h3>
-          
+
           <p style="font-size:16px; line-height:1.7; color:rgba(15,23,42,.74); margin:0 0 16px">
             On August 27th, 2019, our application for an ERDF grant was approved by the Investitionsbank des Landes Brandenburg, as part of their Gründung innovativ programme.
           </p>
@@ -293,7 +386,7 @@
     // Mobile menu toggle
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
-    
+
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       navMenu.classList.toggle('active');
